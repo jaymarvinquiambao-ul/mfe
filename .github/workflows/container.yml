@@ -1,6 +1,21 @@
 name: deploy-container
 
 on:
+    workflow_dispatch:
+        inputs:
+          logLevel:
+            description: 'Log level'
+            required: true
+            default: 'warning'
+            type: choice
+            options:
+            - info
+            - warning
+            - debug
+          environment:
+            description: 'Environment to run on'
+            required: true
+            type: environment
     push:
         branches:
             - main
